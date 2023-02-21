@@ -2,7 +2,7 @@
 
 ## user　テーブル
 
- | Column              | Type      | options                        |
+ | Column              | Type      | options                        | 
  | --------------------| --------- | ------------------------------ |
  | email               | string    | null: false, unique: true      |
  | encrypted_password  | string    | null: false                    |
