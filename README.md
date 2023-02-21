@@ -13,7 +13,8 @@
 
  ### Association
  
- - has_many :items
+ -has_many :items
+ -has_many :oders
 
  ## items テーブル
 
@@ -30,4 +31,19 @@
 
  ### Association
 
- -belong_to :user
+ -belongs_to :user
+ -has_one :oders
+
+ ### orders
+
+ | Column              | Type      | options                        |
+ | --------------------| --------- | -------------------------------|
+ | address             | string    | null: false                    |
+ | price               | string    | null: false                    |
+ | users               | references| null: false, foreign_key: true |
+ | items               | references| null: false, foreign_key: true |
+
+ ### Association
+
+ -belongs_to :user
+ -belongs_to :item
