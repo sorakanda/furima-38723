@@ -17,15 +17,14 @@
  
  -has_many :items
  -has_many :orders
- -has_many :addresses
-
+ 
  ## items テーブル
 
  | Column                 | Type       | Options                        |
  | -------------------    | ---------  | ------------------------------ |
  | name                   | string     | null: false                    |
  | info                   | text       | null: false                    |
- | seller                 | string     | null: false                    |
+ | seller                 | integer    | null: false                    |
  | category_id            | integer    | null: false                    |
  | sales_status_id        | integer    | null: false                    |
  | user                   | references | null: false, foreign_key: true |
@@ -38,34 +37,31 @@
 
  -belongs_to :user
  -has_one :order
- -has_one :address
 
  ## orders
 
  | Column              | Type      | options                        |
  | --------------------| --------- | -------------------------------|
- | users               | references| null: false, foreign_key: true |
- | items               | references| null: false, foreign_key: true |
+ | user                | references| null: false, foreign_key: true |
+ | item                | references| null: false, foreign_key: true |
 
  ### Association
 
  -belongs_to :user
  -belongs_to :item
- -belongs_to :address
+ -has_one :address
 
  ## addresses
 
  | Column              | Type      | options                        | 
  | --------------------| --------- | ------------------------------ |
- | post_code           | integer   | null: false                    |
+ | post_code           | string    | null: false                    |
  | prefecture_id       | integer   | null: false                    |
  | city                | string    | null: false                    |
- | house_number        | integer   | null: false                    |
+ | house_number        | string    | null: false                    |
  | building_name       | string    |                                |
- | phone_number        | integer   | null: false                    |
+ | phone_number        | string    | null: false                    |
 
  ### Association
 
- -belongs_to :user
- -belongs_to :item
  -belongs_to :order
