@@ -9,8 +9,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :nickname,           null: false
       t.string :last_name,          null: false
       t.string :first_name,         null: false
-      t.string :last__name_kana,    null: false
-      t.string :first__name_kana,   null: false
+      t.string :last_name_kana,     null: false
+      t.string :first_name_kana,    null: false
       t.date   :birth,              null: false
 
       ## Recoverable
@@ -40,7 +40,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
 
 
       # Uncomment below if timestamps were not included in your original model.
-      # t.timestamps null: false
+      t.timestamps null: false
     end
 
     add_index :users, :email,                unique: true
