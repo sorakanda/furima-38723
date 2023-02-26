@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category # :sales_status, :shipping_fee_status, :prrefecture, :Scheduled_delivery
+  belongs_to :category, :prefecture # :sales_status, :shipping_fee_status,:Scheduled_delivery
 
   validates :name, :image,          presence: true
   validates :info,                  presence: true
