@@ -1,14 +1,11 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: :index
   def index
     
   end
 
   def new
-    if user_signed_in?
       @item = Item.new
-    else
-      render 'devise/sessions/new'
-    end
   end
 
   def create
@@ -16,7 +13,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      render new_item_path
+      render :new
     end
   end
 
