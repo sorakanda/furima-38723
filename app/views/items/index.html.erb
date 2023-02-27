@@ -127,11 +127,12 @@
           <div class='item-img-content'>
             <%= image_tag item.image , class: "item-img" %> 
 
-            <% unless @items.present? %>
-              <div class='sold-out'>
-                <span>Sold Out!!</span> 
-            </div>
-            <% end %>
+            <%# <% unless @items.present? %> 
+              <%# <div class='sold-out'> %>
+                <%# <span>Sold Out!!</span>  %>
+              <%# </div> %>
+            <%# <% end %>
+            <%# この後の実装のため %>
 
           </div>
           <div class='item-info'>
