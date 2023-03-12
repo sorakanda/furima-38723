@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
@@ -35,8 +36,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-      @item.destroy
-      redirect_to root_path
+    @item.destroy
+    redirect_to root_path
   end
 
 
@@ -48,7 +49,9 @@ class ItemsController < ApplicationController
 
   def move_to_index
     @item = Item.find(params[:id])
-    unless current_user.id == @item.user_id
+    if @item.order.present?
+      redirect_to action: :index
+    elsif current_user.id != @item.user_id
       redirect_to action: :index
     end
   end
