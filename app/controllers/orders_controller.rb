@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :move_to_index
   before_action :item_find_id
+  before_action :move_to_index
+  
 
   def index
     @order_address = OrderAddress.new
@@ -36,7 +37,6 @@ class OrdersController < ApplicationController
   end
 
   def move_to_index
-    @item = Item.find(params[:item_id])
     if ( current_user.id == @item.user_id ) || @item.order.present?
       redirect_to root_path
     end
